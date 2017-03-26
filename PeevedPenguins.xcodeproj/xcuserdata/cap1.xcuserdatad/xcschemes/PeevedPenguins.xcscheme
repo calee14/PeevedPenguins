@@ -5,6 +5,22 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B3879C471E8783F000FDAC8A"
+               BuildableName = "PeevedPenguins.app"
+               BlueprintName = "PeevedPenguins"
+               ReferencedContainer = "container:PeevedPenguins.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -12,7 +28,36 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B3879C611E8783F000FDAC8A"
+               BuildableName = "PeevedPenguinsTests.xctest"
+               BlueprintName = "PeevedPenguinsTests"
+               ReferencedContainer = "container:PeevedPenguins.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B3879C6C1E8783F000FDAC8A"
+               BuildableName = "PeevedPenguinsUITests.xctest"
+               BlueprintName = "PeevedPenguinsUITests"
+               ReferencedContainer = "container:PeevedPenguins.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B3879C471E8783F000FDAC8A"
+            BuildableName = "PeevedPenguins.app"
+            BlueprintName = "PeevedPenguins"
+            ReferencedContainer = "container:PeevedPenguins.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -26,6 +71,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B3879C471E8783F000FDAC8A"
+            BuildableName = "PeevedPenguins.app"
+            BlueprintName = "PeevedPenguins"
+            ReferencedContainer = "container:PeevedPenguins.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -35,6 +90,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B3879C471E8783F000FDAC8A"
+            BuildableName = "PeevedPenguins.app"
+            BlueprintName = "PeevedPenguins"
+            ReferencedContainer = "container:PeevedPenguins.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
