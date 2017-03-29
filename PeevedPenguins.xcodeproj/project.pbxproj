@@ -39,6 +39,7 @@
 		B3879C8D1E878BCC00FDAC8A /* MainScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3879C8C1E878BCC00FDAC8A /* MainScene.sks */; };
 		B3879C8F1E878CE600FDAC8A /* MSButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3879C8E1E878CE600FDAC8A /* MSButtonNode.swift */; };
 		B3879C911E878F7500FDAC8A /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3879C901E878F7500FDAC8A /* MainScene.swift */; };
+		B3EC2F721E8B68BC00948455 /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3EC2F711E8B68BC00948455 /* Level1.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		B3879C8C1E878BCC00FDAC8A /* MainScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainScene.sks; sourceTree = "<group>"; };
 		B3879C8E1E878CE600FDAC8A /* MSButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSButtonNode.swift; sourceTree = "<group>"; };
 		B3879C901E878F7500FDAC8A /* MainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
+		B3EC2F711E8B68BC00948455 /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 		B3879C4A1E8783F000FDAC8A /* PeevedPenguins */ = {
 			isa = PBXGroup;
 			children = (
+				B3EC2F701E8B689600948455 /* Levels */,
 				B31D1E5A1E89E59400B32DBA /* SKTUtils */,
 				B3879C8B1E878AFC00FDAC8A /* Nodes */,
 				B3879C7F1E87855300FDAC8A /* assets.atlas */,
@@ -215,6 +218,14 @@
 				B3879C891E878A4E00FDAC8A /* Seal.sks */,
 			);
 			name = Nodes;
+			sourceTree = "<group>";
+		};
+		B3EC2F701E8B689600948455 /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				B3EC2F711E8B68BC00948455 /* Level1.sks */,
+			);
+			name = Levels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +348,7 @@
 				B3879C841E87879800FDAC8A /* CharacterAction.sks in Resources */,
 				B31D1E741E89EE9300B32DBA /* Penguin.sks in Resources */,
 				B3879C5C1E8783F000FDAC8A /* LaunchScreen.storyboard in Resources */,
+				B3EC2F721E8B68BC00948455 /* Level1.sks in Resources */,
 				B3879C8A1E878A4E00FDAC8A /* Seal.sks in Resources */,
 				B3879C501E8783F000FDAC8A /* Actions.sks in Resources */,
 			);
