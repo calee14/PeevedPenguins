@@ -39,6 +39,9 @@
 		B3879C8D1E878BCC00FDAC8A /* MainScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3879C8C1E878BCC00FDAC8A /* MainScene.sks */; };
 		B3879C8F1E878CE600FDAC8A /* MSButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3879C8E1E878CE600FDAC8A /* MSButtonNode.swift */; };
 		B3879C911E878F7500FDAC8A /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3879C901E878F7500FDAC8A /* MainScene.swift */; };
+		B3D9D1641E8E074900AEB312 /* SealExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3D9D1631E8E074900AEB312 /* SealExplosion.sks */; };
+		B3D9D1671E8E0B6E00AEB312 /* sfx_seal.caf in Resources */ = {isa = PBXBuildFile; fileRef = B3D9D1661E8E0B6E00AEB312 /* sfx_seal.caf */; };
+		B3D9D16A1E8E0B8C00AEB312 /* sfx_seal.caf in Resources */ = {isa = PBXBuildFile; fileRef = B3D9D1691E8E0B8C00AEB312 /* sfx_seal.caf */; };
 		B3EC2F721E8B68BC00948455 /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = B3EC2F711E8B68BC00948455 /* Level1.sks */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +101,9 @@
 		B3879C8C1E878BCC00FDAC8A /* MainScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainScene.sks; sourceTree = "<group>"; };
 		B3879C8E1E878CE600FDAC8A /* MSButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSButtonNode.swift; sourceTree = "<group>"; };
 		B3879C901E878F7500FDAC8A /* MainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
+		B3D9D1631E8E074900AEB312 /* SealExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SealExplosion.sks; sourceTree = "<group>"; };
+		B3D9D1661E8E0B6E00AEB312 /* sfx_seal.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sfx_seal.caf; sourceTree = "<group>"; };
+		B3D9D1691E8E0B8C00AEB312 /* sfx_seal.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sfx_seal.caf; sourceTree = "<group>"; };
 		B3EC2F711E8B68BC00948455 /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,6 +185,7 @@
 				B3879C8C1E878BCC00FDAC8A /* MainScene.sks */,
 				B3879C4F1E8783F000FDAC8A /* Actions.sks */,
 				B3879C831E87879800FDAC8A /* CharacterAction.sks */,
+				B3D9D1631E8E074900AEB312 /* SealExplosion.sks */,
 				B3879C511E8783F000FDAC8A /* GameScene.swift */,
 				B3879C901E878F7500FDAC8A /* MainScene.swift */,
 				B3879C531E8783F000FDAC8A /* GameViewController.swift */,
@@ -213,11 +220,31 @@
 		B3879C8B1E878AFC00FDAC8A /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
+				B3D9D1681E8E0B8C00AEB312 /* SFX-2 */,
+				B3D9D1651E8E0B6E00AEB312 /* SFX-2 */,
 				B31D1E731E89EE9300B32DBA /* Penguin.sks */,
 				B3879C811E87859E00FDAC8A /* Bear.sks */,
 				B3879C891E878A4E00FDAC8A /* Seal.sks */,
 			);
 			name = Nodes;
+			sourceTree = "<group>";
+		};
+		B3D9D1651E8E0B6E00AEB312 /* SFX-2 */ = {
+			isa = PBXGroup;
+			children = (
+				B3D9D1661E8E0B6E00AEB312 /* sfx_seal.caf */,
+			);
+			name = "SFX-2";
+			path = "assets.atlas/SFX-2";
+			sourceTree = "<group>";
+		};
+		B3D9D1681E8E0B8C00AEB312 /* SFX-2 */ = {
+			isa = PBXGroup;
+			children = (
+				B3D9D1691E8E0B8C00AEB312 /* sfx_seal.caf */,
+			);
+			name = "SFX-2";
+			path = "assets.atlas/SFX-2";
 			sourceTree = "<group>";
 		};
 		B3EC2F701E8B689600948455 /* Levels */ = {
@@ -344,7 +371,10 @@
 				B3879C4E1E8783F000FDAC8A /* GameScene.sks in Resources */,
 				B3879C801E87855300FDAC8A /* assets.atlas in Resources */,
 				B3879C591E8783F000FDAC8A /* Assets.xcassets in Resources */,
+				B3D9D1641E8E074900AEB312 /* SealExplosion.sks in Resources */,
 				B3879C8D1E878BCC00FDAC8A /* MainScene.sks in Resources */,
+				B3D9D1671E8E0B6E00AEB312 /* sfx_seal.caf in Resources */,
+				B3D9D16A1E8E0B8C00AEB312 /* sfx_seal.caf in Resources */,
 				B3879C841E87879800FDAC8A /* CharacterAction.sks in Resources */,
 				B31D1E741E89EE9300B32DBA /* Penguin.sks in Resources */,
 				B3879C5C1E8783F000FDAC8A /* LaunchScreen.storyboard in Resources */,

@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //game object connnections
     var catapultArm: SKSpriteNode!
@@ -31,6 +31,11 @@ class GameScene: SKScene {
     var penguinJoint: SKPhysicsJointPin?
     
     override func didMove(to view: SKView) {
+        //Setup your scene here
+        
+        //Set physics contact delegate 
+        physicsWorld.contactDelegate = self
+        
         //Set reference to catapultArm node
         catapultArm = childNode(withName: "catapultArm") as! SKSpriteNode
         catapult = childNode(withName: "catapult") as! SKSpriteNode
@@ -89,11 +94,11 @@ class GameScene: SKScene {
         physicsWorld.add(catapultPinJoint)
         
         //Spring joint catapult arm and cantilever node 
-        let catapultSpringJoint = SKPhysicsJointSpring.joint(withBodyA: catapultArm.physicsBody!, bodyB: cantileverNode.physicsBody!, anchorA: catapultArm.position + CGPoint(x:15, y:30), anchorB: cantileverNode.position)
+        let catapultSpringJoint = SKPhysicsJointSpring.joint(withBodyA: catapultArm.physicsBody!, bodyB: cantileverNode.physicsBody!, anchorA: catapultArm.position + CGPoint(x:17, y:30), anchorB: cantileverNode.position)
         physicsWorld.add(catapultSpringJoint)
         
         //Make this joint a but more springy
-        catapultSpringJoint.frequency = 2.5
+        catapultSpringJoint.frequency = 3.5
         
     }
     
@@ -133,6 +138,9 @@ class GameScene: SKScene {
                 penguinJoint = SKPhysicsJointPin.joint(withBodyA: catapultArm.physicsBody!, bodyB: penguin.avatar.physicsBody!, anchor: penguin.avatar.position)
                 physicsWorld.add(penguinJoint!)
                 
+                //Remove any camera actions
+                camera?.removeAllActions()
+                
                 //Set camera to follow penguin
                 cameraTarget = penguin.avatar
                 
@@ -161,6 +169,62 @@ class GameScene: SKScene {
         if let penguinJoint = penguinJoint { physicsWorld.remove(penguinJoint) }
         
     }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        //Physics contact delegate implementation
+        
+        //Get reference to the bodies involved in the collision
+        let contactA: SKPhysicsBody = contact.bodyA
+        let contactB: SKPhysicsBody = contact.bodyB
+        
+        //Get references to the physics body parent SKSprinteNode
+        let nodeA = contactA.node as! SKSpriteNode
+        let nodeB = contactB.node as! SKSpriteNode
+        
+        //Check if either physics body was a seal
+        if contactA.categoryBitMask == 2 || contactB.categoryBitMask == 2 {
+            
+            //Was the collision more than a gentle nudge?
+            if contact.collisionImpulse > 2.0 {
+                
+                //Kill the Seal(s)
+                if contactA.categoryBitMask == 2 { dieSeal(node: nodeA) }
+                if contactB.categoryBitMask == 2 { dieSeal(node: nodeB) }
+            }
+        }
+        
+    }
+    
+    func dieSeal(node: SKNode) {
+        //Seal Death
+        
+        //Load our particle effect
+        let particles = SKEmitterNode(fileNamed: "SealExplosion")!
+        
+        //Play SFX
+        let sealSFX = SKAction.playSoundFileNamed("sfx_seal", waitForCompletion: false)
+        self.run(sealSFX)
+        
+        //Convert node location (currently inside level 1, to scene space)
+        particles.position = convert(node.position, from: node)
+        
+        //Restrict total particles to reduce runtime of particle
+        particles.numParticlesToEmit = 25
+        
+        //Add particles to scene
+        addChild(particles)
+        
+        //Create our hero death action
+        let sealDeath = SKAction.run({
+            //Remove Seal node from Scene
+            node.removeFromParent()
+            
+        })
+        
+        self.run(sealDeath)
+        
+    }
+    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         
@@ -170,10 +234,46 @@ class GameScene: SKScene {
             //Set camera position to follow target horizontally, keep vertical locked
             camera?.position = CGPoint(x: cameraTarget.position.x, y: camera!.position.y)
             
+            //Clamp camera scrolling to our visible scene area only
+            camera?.position.x.clamp(v1: 283, 677)
+            
+            //Check penguin has come to rest
+            if (cameraTarget.physicsBody?.joints.count)! == 0 && (cameraTarget.physicsBody?.velocity.length())! < 0.18 {
+                
+                cameraTarget.removeFromParent()
+                
+                //Reset catapult arm
+                catapultArm.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+                catapultArm.physicsBody?.angularVelocity = 0
+                catapultArm.zRotation = 0
+                
+                //Reset camera
+                let cameraReset = SKAction.move(to: CGPoint(x: 284, y: camera!.position.y), duration: 1.5)
+                let cameraDelay = SKAction.wait(forDuration: 0.5)
+                let cameraSequence = SKAction.sequence([cameraDelay, cameraReset])
+                
+                camera?.run(cameraSequence)
+                
+            }
+            
+            if (cameraTarget.position.x) > 980 || (cameraTarget.position.x) < -10 {
+                
+                cameraTarget.removeFromParent()
+                
+                //Reset catapult arm
+                catapultArm.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+                catapultArm.physicsBody?.angularVelocity = 0
+                catapultArm.zRotation = 0
+                
+                //Reset camera
+                let cameraReset = SKAction.move(to: CGPoint(x: 284, y: camera!.position.y), duration: 1.5)
+                let cameraDelay = SKAction.wait(forDuration: 0.5)
+                let cameraSequence = SKAction.sequence([cameraDelay, cameraReset])
+                
+                camera?.run(cameraSequence)
+            }
         }
         
-        //Clamp camera scrolling to our visible scene area only
-        camera?.position.x.clamp(v1: 283, 677)
         
     }
 }
